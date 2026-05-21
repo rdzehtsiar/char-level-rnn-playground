@@ -1,5 +1,6 @@
-import './globals.css'
-import { siteConfig, siteUrl } from './seo'
+import "./globals.css";
+import { siteConfig, siteUrl } from "./seo";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
   metadataBase: siteUrl,
@@ -10,17 +11,17 @@ export const metadata = {
   creator: siteConfig.creator,
   publisher: siteConfig.publisher,
   alternates: {
-    canonical: '/',
+    canonical: "/",
   },
   openGraph: {
-    type: 'website',
-    url: '/',
+    type: "website",
+    url: "/",
     siteName: siteConfig.name,
     title: siteConfig.name,
     description: siteConfig.description,
     images: [
       {
-        url: '/opengraph-image',
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: siteConfig.name,
@@ -28,10 +29,10 @@ export const metadata = {
     ],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
-    images: ['/opengraph-image'],
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
@@ -39,18 +40,21 @@ export const metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-      'max-video-preview': -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
     },
   },
-  manifest: '/manifest.webmanifest',
-}
+  manifest: "/manifest.webmanifest",
+};
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  )
+    <>
+      <html lang="en">
+        <body>{children}</body>
+      </html>
+      <Analytics />
+    </>
+  );
 }
