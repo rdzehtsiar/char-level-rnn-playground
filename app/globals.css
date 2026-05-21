@@ -1,0 +1,206 @@
+:root {
+  font-family: "Merriweather", "Georgia", "Times New Roman", serif;
+  color: #0f172a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 20%, #2f2116, #120d0a 52%, #090603 100%);
+  overflow: hidden;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 2rem;
+}
+
+.title {
+  margin: 0 0 1rem;
+  color: #f2e7cf;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.name-text {
+  --name-loader-size: 56px;
+  color: #e5d8bf;
+  font-size: clamp(2rem, 8vw, 5rem);
+  line-height: 1.2;
+  font-weight: 900;
+  text-transform: capitalize;
+  letter-spacing: 0.06em;
+  text-wrap: balance;
+  max-width: 18ch;
+  min-height: 1.2em;
+  display: grid;
+  place-items: center;
+}
+
+.name-loader {
+  width: var(--name-loader-size);
+  height: var(--name-loader-size);
+  color: #e5d8bf;
+  animation: spin 1s linear infinite;
+}
+
+.name-placeholder {
+  color: transparent;
+  user-select: none;
+}
+
+.hint {
+  margin-top: 0.7rem;
+  color: rgba(229, 216, 191, 0.72);
+  font-size: 0.84rem;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.hint-action {
+  display: none;
+}
+
+.hint-action-desktop {
+  align-items: center;
+  display: inline-flex;
+}
+
+.gender-switch {
+  display: flex;
+  gap: 1rem;
+}
+
+.gender-btn {
+  -webkit-tap-highlight-color: transparent;
+  appearance: none;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.35rem;
+  border: 0;
+  background: transparent;
+  color: #8f7f66;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.gender-btn:focus,
+.gender-btn:focus-visible,
+.gender-btn:active {
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+}
+
+.gender-btn.active {
+  color: #f2e7cf;
+  transform: scale(1.08);
+}
+
+.copy-btn {
+  -webkit-tap-highlight-color: transparent;
+  appearance: none;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 0.35rem;
+  border: 0;
+  background: transparent;
+  color: #8f7f66;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.copy-btn:focus,
+.copy-btn:focus-visible,
+.copy-btn:active {
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+}
+
+.copy-btn.active {
+  color: #f2e7cf;
+  transform: scale(1.08);
+}
+
+.hint-key {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 0.38rem;
+  padding: 0.12rem 0.55rem;
+  border-radius: 0.35rem;
+  border: 1px solid rgba(229, 216, 191, 0.55);
+  background: rgba(255, 255, 255, 0.08);
+  color: #f2e7cf;
+  font-size: 0.78rem;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+@media (pointer: coarse), (hover: none) {
+  .name-text {
+    --name-loader-size: 1em;
+  }
+
+  .hint-action-desktop {
+    display: none;
+  }
+
+  .hint-action-touch {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 1024px) {
+  .name-text {
+    --name-loader-size: 1em;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .name-text {
+    animation: rumble 5s ease-in-out infinite;
+  }
+}
+
+@keyframes rumble {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-0.2deg);
+  }
+  50% {
+    transform: translateY(-1px) rotate(0.1deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
