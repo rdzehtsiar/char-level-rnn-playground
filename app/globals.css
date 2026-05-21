@@ -72,11 +72,11 @@ body {
 }
 
 .hint-action {
+  align-items: center;
   display: none;
 }
 
 .hint-action-desktop {
-  align-items: center;
   display: inline-flex;
 }
 
